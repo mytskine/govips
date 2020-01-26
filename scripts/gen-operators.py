@@ -12,6 +12,8 @@ import gi
 gi.require_version("Vips", "8.0")
 from gi.repository import Vips, GObject
 
+Vips.init(sys.argv[0])
+
 vips_type_image = GObject.GType.from_name("VipsImage")
 vips_type_operation = GObject.GType.from_name("VipsOperation")
 param_enum = GObject.GType.from_name("GParamEnum")
