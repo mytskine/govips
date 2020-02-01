@@ -1,5 +1,18 @@
 # govips [![Build Status](https://travis-ci.org/davidbyttow/govips.svg)](https://travis-ci.org/davidbyttow/govips) [![GoDoc](https://godoc.org/github.com/davidbyttow/govips?status.svg)](https://godoc.org/github.com/davidbyttow/govips) [![Go Report Card](http://goreportcard.com/badge/davidbyttow/govips)](http://goreportcard.com/report/davidbyttow/govips) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
+# Why this fork?
+
+Upstream has been unresponsive for 10 months (last commit 2019-03-04).
+Issues and PR are pending.
+
+This forks adds:
+
+- operators for a full install of Vips 8.9.0 (e.g. `Magickload()`, `Rotate()` and `Transpose3D()`)
+- operators that use the type arraydouble (e.g. `DrawMask()` and `Getpoint()`)
+
+See comments at top of `operators.go` for a list of unsupported operators.
+
+
 # A libvips library for Go
 This package wraps the core functionality of [libvips](https://github.com/libvips/libvips) image processing library by exposing all image operations on first-class types in Go. Additionally, it exposes raw access to call operations directly, for forward compatibility.
 
