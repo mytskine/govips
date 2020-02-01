@@ -90,6 +90,29 @@ func OutputDouble(name string, v *float64) *Option {
 	return o
 }
 
+// InputDoubleArray represents a VipsArrayDouble input option
+func InputDoubleArray(name string, v DoubleArray) *Option {
+	start := (*C.double)(&v[0])
+	o := NewOption(name, C.vips_array_double_get_type(), false, nil)
+	C.vips_value_set_array_double(&o.gvalue, start, (C.int)(len(v)))
+	return o
+}
+
+// OutputDoubleArray represents a VipsArrayDouble output option
+func OutputDoubleArray(name string, v *DoubleArray) *Option {
+	o := NewOption(name, C.vips_array_double_get_type(), true, func(gv *C.GValue) {
+		var size C.int
+		array := C.vips_value_get_array_double(gv, &size)
+		data := (*[1<<30]float64)(unsafe.Pointer(array))
+		doubles := make(DoubleArray, int(size))
+		for i := 0; i < int(size); i++ {
+			doubles[i] = data[i]
+		}
+		*v = doubles
+	})
+	return o
+}
+
 // InputString represents a string input option
 func InputString(name string, v string) *Option {
 	cStr := C.CString(v)

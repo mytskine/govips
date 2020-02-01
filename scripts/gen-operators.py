@@ -48,6 +48,7 @@ go_types = {
     "gdouble": "float64",
     "gint": "int",
     "VipsBlob": "*Blob",
+    "VipsArrayDouble": "DoubleArray",
     "VipsImage": "*C.VipsImage",
     "VipsInterpolate": "*Interpolator",
     "VipsOperationMath": "OperationMath",
