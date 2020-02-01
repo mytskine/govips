@@ -10,6 +10,9 @@ import (
 	"sync"
 )
 
+// DoubleArray is a vector
+type DoubleArray []float64
+
 // ResizeStrategy is the strategy to use when resizing an image
 type ResizeStrategy int
 

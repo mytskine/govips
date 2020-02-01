@@ -11,14 +11,17 @@ func TestOptionPrimitives(t *testing.T) {
 	var i int
 	var d float64
 	var s string
+	var da DoubleArray
 	options := []*vips.Option{
 		vips.InputBool("b", true),
 		vips.InputInt("i", 42),
 		vips.InputDouble("d", 42.2),
+		vips.InputDoubleArray("da", [42.0, 42.2]),
 		vips.InputString("s", "hi"),
 		vips.OutputBool("b", &b),
 		vips.OutputInt("i", &i),
 		vips.OutputDouble("d", &d),
+		vips.OutputDoubleArray("da", 42.2),
 		vips.OutputString("s", &s),
 	}
 
