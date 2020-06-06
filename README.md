@@ -73,6 +73,14 @@ pixel, _ := vips.Getpoint(lch, 0, 0)
 return piwel[0], nil
 ```
 
+Most operators can return their result *into a new value* or *in-place*:
+```
+// create a new Image (the histogram is an image)
+hist, err := vips.HistFind(image)
+// OR replace imageRef's content with its histogram image
+err := imageRef.HistFind()
+```
+
 # Contributing
 In short, feel free to file issues or send along pull requests. See this [guide on contributing](https://github.com/davidbyttow/govips/blob/master/CONTRIBUTING.md) for more information.
 
